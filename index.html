@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="mainApp">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Ruta levigatura pavimenti</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- custom library -->
+    <script src="library/bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap-theme.css">
+    <link href="library/bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css" rel="stylesheet">
+    <script src="library/bower_components/components-bootstrap/js/bootstrap.js"></script>
+    <script src="library/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="library/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="library/bower_components/nya-bootstrap-select/dist/js/nya-bs-select.js"></script>
+    <script src="js/custom/main-class.js"></script>
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top" ng-controller="mainCtrl">
+<!--MENU-->
+<section class="s-pageheader s-pageheader--home">
+
+    <jc-menu current="Home"></jc-menu>
+    <div class="pageheader-content">
+        <div class="col-full">
+
+            <div class="featured">
+
+                <div class="featured__column featured__column--big">
+                    <div class="entry" style="background-image:url('images/home/home-preventivo.jpg');">
+
+                        <div class="entry__content">
+                            <span class="entry__category"><a href="{{linkPages.price}}">Preventivo gratuito</a></span>
+
+                            <h1><a href="{{linkPages.price}}" title="">Valuta istantaneamente il prezzo su misura per te</a></h1>
+
+                        </div> <!-- end entry__content -->
+
+                    </div> <!-- end entry -->
+                </div> <!-- end featured__big -->
+
+                <div class="featured__column featured__column--small">
+
+                    <div class="entry" style="background-image:url('images/home/home-marmo.jpg');">
+
+                        <div class="entry__content">
+                            <span class="entry__category"><a href="#0">Marmo</a></span>
+                            <h1><a href="#0" title="">La levigatura di una volta con le comodità moderne</a></h1>
+                        </div> <!-- end entry__content -->
+
+                    </div> <!-- end entry -->
+
+                    <div class="entry" style="background-image:url('images/home/home-granito.jpg');">
+
+                        <div class="entry__content">
+                            <span class="entry__category"><a href="#0">Granito</a></span>
+
+                            <h1><a href="#0" title="">Un effetto al 'diamante'</a></h1>
+
+                        </div> <!-- end entry__content -->
+
+                    </div> <!-- end entry -->
+
+                </div> <!-- end featured__small -->
+            </div> <!-- end featured -->
+
+        </div> <!-- end col-full -->
+    </div> <!-- end pageheader-content row -->
+
+</section> <!-- end s-pageheader -->
+
+
+<!-- s-content
+================================================== -->
+<section class="s-content" style="padding-top: 8.4em;">
+
+    <div class="row masonry-wrap">
+        <div class="masonry">
+
+            <div class="grid-sizer"></div>
+
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                <div class="entry__thumb">
+                    <a href="single-standard.html" class="entry__thumb-link">
+                        <img src="images/home/home-cemento.jpg"
+                             alt="">
+                    </a>
+                </div>
+
+                <div class="entry__text">
+                    <div class="entry__excerpt">
+                        <h5 uib-tooltip="ciao">Cemento</h5>
+                        <p>
+                            {{text}}
+                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit
+                            proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute
+                            incididunt velit sint in aliqua...
+                        </p>
+                    </div>
+
+                </div>
+
+            </article> <!-- end article -->
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                <div class="entry__thumb">
+                    <a href="single-standard.html" class="entry__thumb-link">
+                        <img src="images/home/home-cotto.jpg"
+                             alt="">
+                    </a>
+                </div>
+
+                <div class="entry__text">
+                    <div class="entry__excerpt">
+                        <h5>40 anni di esperienza</h5>
+                        <p>
+                           La famiglia Ruta adopera nel settore della levigatura da oltre 2 generazioni, mettendo a vostro servizio una esperienza di oltre 40 anni.
+                            <br>I nostri prezzi sono onesti e garantiscono una elevata qualità della lavorazione.
+                            <br>
+                            <br>
+                            <button class="btn btn-success btn-xs">Continua <i class="fa fa-arrow-circle-right"></i></button>
+                        </p>
+                    </div>
+
+                </div>
+
+            </article> <!-- end article -->
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+
+                <div class="entry__thumb">
+                    <a href="single-standard.html" class="entry__thumb-link">
+                        <img src="images/thumbs/masonry/lamp-400.jpg"
+                             srcset="images/thumbs/masonry/lamp-400.jpg 1x, images/thumbs/masonry/lamp-800.jpg 2x"
+                             alt="">
+                    </a>
+                </div>
+
+                <div class="entry__text">
+                    <div class="entry__excerpt">
+                        <h5>I nostri prodotti</h5>
+                        <p>
+                            Acquista prodotti per la lavorazione e la manutenzione di qualsiasi superficie, adatti a conservare i risultati del nostro lavoro.
+                            <br>
+                            Scopri i nostri consigli su come utilizzarli al meglio, prenota il tuo prodotto e ritiralo in sede.
+                        </p>
+                    </div>
+
+                </div>
+
+            </article> <!-- end article -->
+            <!--
+                   <article class="masonry__brick entry format-quote" data-aos="fade-up">
+
+                       <div class="entry__thumb">
+                           <blockquote>
+                                   <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
+
+                                   <cite>Dieter Rams</cite>
+                           </blockquote>
+                       </div>
+
+                   </article> &lt;!&ndash; end article &ndash;&gt;
+
+                   <article class="masonry__brick entry format-video" data-aos="fade-up">
+
+                       <div class="entry__thumb video-image">
+                           <a href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
+                               <img src="images/thumbs/masonry/shutterbug-400.jpg"
+                                       srcset="images/thumbs/masonry/shutterbug-400.jpg 1x, images/thumbs/masonry/shutterbug-800.jpg 2x" alt="">
+                           </a>
+                       </div>
+
+                       <div class="entry__text">
+                           <div class="entry__header">
+
+                               <div class="entry__date">
+                                   <a href="single-video.html">December 10, 2017</a>
+                               </div>
+                               <h1 class="entry__title"><a href="single-video.html">Key Benefits Of Family Photography.</a></h1>
+
+                           </div>
+                           <div class="entry__excerpt">
+                               <p>
+                                   Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                               </p>
+                           </div>
+                           <div class="entry__meta">
+                               <span class="entry__meta-links">
+                                   <a href="category.html">Family</a>
+                                   <a href="category.html">Photography</a>
+                               </span>
+                           </div>
+                       </div>
+
+                   </article> &lt;!&ndash; end article &ndash;&gt;
+
+                   <article class="masonry__brick entry format-gallery" data-aos="fade-up">
+
+                       <div class="entry__thumb slider">
+                           <div class="slider__slides">
+                               <div class="slider__slide">
+                                   <img src="images/thumbs/masonry/gallery/gallery-1-400.jpg"
+                                           srcset="images/thumbs/masonry/gallery/gallery-1-400.jpg 1x, images/thumbs/masonry/gallery/gallery-1-800.jpg 2x" alt="">
+                               </div>
+                               <div class="slider__slide">
+                                   <img src="images/thumbs/masonry/gallery/gallery-2-400.jpg"
+                                           srcset="images/thumbs/masonry/gallery/gallery-2-400.jpg 1x, images/thumbs/masonry/gallery/gallery-2-800.jpg 2x" alt="">
+                               </div>
+                               <div class="slider__slide">
+                                   <img src="images/thumbs/masonry/gallery/gallery-3-400.jpg"
+                                           srcset="images/thumbs/masonry/gallery/gallery-3-400.jpg 1x, images/thumbs/masonry/gallery/gallery-3-800.jpg 2x" alt="">
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="entry__text">
+                           <div class="entry__header">
+
+                               <div class="entry__date">
+                                   <a href="single-gallery.html">December 10, 2017</a>
+                               </div>
+                               <h1 class="entry__title"><a href="single-gallery.html">Workspace Design Trends and Ideas.</a></h1>
+
+                           </div>
+                           <div class="entry__excerpt">
+                               <p>
+                                   Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                               </p>
+                           </div>
+                           <div class="entry__meta">
+                               <span class="entry__meta-links">
+                                   <a href="category.html">Work</a>
+                                   <a href="category.html">Management</a>
+                               </span>
+                           </div>
+                       </div>
+
+                   </article> &lt;!&ndash; end article &ndash;&gt;
+
+                   <article class="masonry__brick entry format-audio" data-aos="fade-up">
+
+                       <div class="entry__thumb">
+                           <a href="single-audio.html" class="entry__thumb-link">
+                               <img src="images/thumbs/masonry/guitarman-400.jpg"
+                                       srcset="images/thumbs/masonry/guitarman-400.jpg 1x, images/thumbs/masonry/guitarman-800.jpg 2x" alt="">
+                           </a>
+                           <div class="audio-wrap">
+                               <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+                           </div>
+                       </div>
+
+                       <div class="entry__text">
+                           <div class="entry__header">
+
+                               <div class="entry__date">
+                                   <a href="single-audio.html">December 10, 2017</a>
+                               </div>
+                               <h1 class="entry__title"><a href="single-audio.html">What Your Music Preference Says About You and Your Personality.</a></h1>
+
+                           </div>
+                           <div class="entry__excerpt">
+                               <p>
+                                   Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
+                               </p>
+                           </div>
+                           <div class="entry__meta">
+                               <span class="entry__meta-links">
+                                   <a href="category.html">Music</a>
+                                   <a href="category.html">Lifestyle</a>
+                               </span>
+                           </div>
+                       </div>
+
+                   </article> &lt;!&ndash; end article &ndash;&gt;
+
+                   <article class="masonry__brick entry format-link" data-aos="fade-up">
+
+                       <div class="entry__thumb">
+                           <div class="link-wrap">
+                               <p>The Only Resource You Will Need To Start a Blog Using WordPress.</p>
+                               <cite>
+                                   <a target="_blank" href="https://colorlib.com/">https://colorlib.com</a>
+                               </cite>
+                           </div>
+                       </div>
+
+                   </article>  end article -->
+
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+</section> <!-- s-content -->
+
+<!-- s-footer
+================================================== -->
+<jc-footer></jc-footer>
+
+
+<!-- preloader
+================================================== -->
+<div id="preloader">
+    <div id="loader">
+        <div class="line-scale">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Java Script
+================================================== -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

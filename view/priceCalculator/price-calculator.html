@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="row">
+        <div class="col-sm-9">  <ol class="nya-bs-select" ng-model="floorType" ng-init="floorType='Superficie'" style="">
+            <li nya-bs-option="option in floorTypes" ng-class="{disabled: $index === 0 }">
+                <!-- the text content of anchor element will be used for search -->
+                <a>
+                    {{ option }}
+                    <span class="glyphicon glyphicon-ok check-mark" style="color: var(--secondary-color-dark)" ng-if="$index !==0"></span>
+                </a>
+            </li>
+        </ol></div>
+        <div class="col-sm-3"><input type="number" ng-model="dimensionMq" placeholder="mq" style="width: 100%;"></div>
+
+    </div>
+
+    <div>
+
+        <!-- NUOVA POSA -->
+        <div class="calculator-checkbox">
+            <label class="checkbox-text">Nuova posa</label>
+            <input type="checkbox" ng-model="isNuovaPosa">
+        </div>
+
+        <!-- RESINA -->
+        <div class="calculator-checkbox">
+            <label class="checkbox-text">Stuccatura in resina</label>
+            <input type="checkbox" ng-model="isResina">
+        </div>
+
+        <!-- TRATTAMENTO -->
+        <div class="calculator-checkbox">
+            <label class="checkbox-text">Trattamento</label>
+            <input type="checkbox" ng-model="isTratment">
+        </div>
+
+    </div>
+    <div style="padding-top: 4rem;">
+
+        <button class="btn btn-primary" ng-disabled="enabledCalculateBtn"
+                ng-click="calculatePrice()">Calcola
+        </button>
+        <button class="btn btn-primary" style="color: white;"
+                ng-click="openSopralluogoModal()"><i class="fa fa-map-marker"></i> Richiedi sopralluogo
+        </button>
+
+    </div>
+    <span class="badge custom-badge euro-badge material-box-2" ng-if="resultPrice"><i class="fa fa-euro"></i> {{resultPrice}}</span>
+
+</div>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="mainApp">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Prezzi</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- custom library -->
+    <script src="library/bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" href="library/bower_components/components-font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap-theme.css">
+    <link href="library/bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css" rel="stylesheet">
+    <script src="library/bower_components/components-bootstrap/js/bootstrap.js"></script>
+    <script src="library/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="library/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="library/bower_components/nya-bootstrap-select/dist/js/nya-bs-select.js"></script>
+
+    <script src="js/custom/main-class.js"></script>
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top" ng-controller="mainCtrl">
+
+<!-- pageheader
+================================================== -->
+<div class="s-pageheader">
+
+    <header class="header">
+        <jc-menu current="{{pageNames.price}}"></jc-menu>
+    </header> <!-- header -->
+
+</div> <!-- end s-pageheader -->
+
+
+<!-- s-content
+================================================== -->
+<section class="s-content">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <price-calculator></price-calculator>
+        </div>
+        <div class="col-sm-9">
+
+            <h5>Calcola il tuo preventivo</h5>
+            <p>Il prezzo calcolato è solo una stima indicativa in base alle nostre tariffe, è comunque necessario un
+                sopralluogo.
+                <br> Il prezzo viene calcolato in base a molteplici fattori: dimensione dell'area,il tipo di pavimento,
+                il suo colore, la quantità di stuccature da effettuare, il numero di dislivelli presenti fra una
+                mattonella e l'altra, la quantità di mobili presenti se l'appartamento è arredato.
+                Diffidate da chi propone cifre che vanno molto al di sotto della media, poichè nei nostri 40 anni di
+                lavoro molte volte abbiamo rieseguito lavori che erano stati effettuati precedentemente da altri
+                pseudo-levigatori.
+            </p>
+            <p>
+                La nostra attività adopera maggiormente nella provincia di Barletta-Andria-Trani e nella regione Puglia.
+                Ma negli anni sono stati effettuati anche lavori di una certa importanza presso Milano, Roma, Padova e
+                altre città del centro / nord Italia.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section> <!-- s-content -->
+
+<!-- s-footer
+================================================== -->
+<jc-footer></jc-footer>
+
+
+<!-- preloader
+================================================== -->
+<div id="preloader">
+    <div id="loader">
+        <div class="line-scale">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Java Script
+================================================== -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

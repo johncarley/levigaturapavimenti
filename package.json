@@ -1,0 +1,9 @@
+{
+  "name": "testgrunt",
+  "description":"test grunt",
+  "author": "wellnet",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
+}
