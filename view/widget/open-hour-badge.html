@@ -1,0 +1,33 @@
+<div>
+    <uib-accordion close-others="true" >
+        <div uib-accordion-group class="panel-default" ng-model="accordionState1" ng-init="accordionState1 = true;" is-open="accordionState1" >
+            <uib-accordion-heading>
+                <i class="fa fa-user secondary-text-color"></i> Recapiti <i class="pull-right glyphicon secondary-text-color" ng-class="{'glyphicon-chevron-down': accordionState1, 'glyphicon-chevron-right': !accordionState1}"></i>
+            </uib-accordion-heading>
+            <icon-badge value="368.3709032" icon="fa fa-phone"></icon-badge>
+            <icon-badge value="Via Enrico Toti 42" icon="fa fa-map-marker"></icon-badge>
+            <icon-badge value="mimmo-ruta@libero.it" icon="fa fa-envelope"></icon-badge>
+        </div>
+        <div uib-accordion-group class="panel-default" ng-model="accordionState2" ng-init="accordionState2 = false;" is-open="accordionState2">
+
+            <uib-accordion-heading>
+                <i class="fa fa-user secondary-text-color"></i> Orari apertura <i class="pull-right glyphicon secondary-text-color" ng-class="{'glyphicon-chevron-down': accordionState2, 'glyphicon-chevron-right': !accordionState2}"></i>
+            </uib-accordion-heading>
+            <div style="display: flex;flex-direction: column;">
+               <span><i class="fa fa-calendar"></i> Lun - Ven</span>
+                <icon-badge value="16:00 - 20:30 h" icon="fa fa-clock-o"></icon-badge>
+                <span><i class="fa fa-calendar"></i> Sabato</span>
+                <icon-badge value="09:30 - 12:30 h" icon="fa fa-clock-o"></icon-badge>
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" ng-model="accordionState3" ng-init="accordionState3 = false;" is-open="accordionState3">
+
+            <uib-accordion-heading>
+                <i class="fa fa-user secondary-text-color"></i> Prezzo e qualità <i class="pull-right glyphicon secondary-text-color" ng-class="{'glyphicon-chevron-down': accordionState3, 'glyphicon-chevron-right': !accordionState3}"></i>
+            </uib-accordion-heading>
+            This content is straight in the template.
+        </div>
+    </uib-accordion>
+
+    </div>
+</div>

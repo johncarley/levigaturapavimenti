@@ -1,4 +1,32 @@
-var app = angular.module('mainApp', ['ui.bootstrap', 'nya.bootstrap.select']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'nya.bootstrap.select','ngRoute']);
+
+app.config(function($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl : "view/index.html"
+        })
+        .when("/chi-siamo", {
+            templateUrl : "chi-siamo.html"
+        })
+        .when("/prezzi", {
+            templateUrl : "prezzi.html"
+        })
+        .when("/contact", {
+            templateUrl : "contact.html"
+        })
+        .when("/marmo", {
+        templateUrl : "view/services/marmo-service.html"
+        })
+        .when("/granito", {
+        templateUrl : "view/services/granito-service.html"
+        })
+        .when("/cemento", {
+        templateUrl : "view/services/cemento-service.html"
+        })
+        .when("/cotto", {
+        templateUrl : "view/services/cotto-service.html"
+    });
+});
 
 app.service("utils", function () {
 
@@ -20,14 +48,21 @@ app.service("utils", function () {
     };
 
     this.linkPages = {
-        home: 'index.html',
-        about: 'chi-siamo.html',
-        price: 'prezzi.html'
+        home: '/',
+        about: 'chi-siamo',
+        price: 'prezzi',
+        marmo: 'marmo',
+        granito: 'granito',
+        cemento: 'cemento',
+        cotto : 'cotto',
+        contact : 'contact'
     };
+
+    this.serviceContentId = 'marmo';
 
 });
 
-app.controller('mainCtrl', function ($scope, utils,$compile) {
+app.controller('mainCtrl', ['$scope','utils','$compile','$uibModal',function ($scope, utils,$compile,$uibModal) {
     $scope.pageNames = utils.pageNames;
     $scope.linkPages = utils.linkPages;
 
@@ -43,7 +78,28 @@ app.controller('mainCtrl', function ($scope, utils,$compile) {
             ]
         }
     };
-});
+
+    $scope.serviceContentId = utils.serviceContentId;
+
+    $scope.openSopralluogoModal = function () {
+
+        $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'view/modal/sopralluogo-modal.html',
+            controller: 'sopralluogoModalCtrl',
+            controllerAs: '$ctrl',
+            size: 'sm',
+            resolve: {
+                items: function () {
+
+                }
+            }
+        });
+
+    };
+}]);
 
 app.directive('jcMenu', [function () {
 
@@ -56,11 +112,29 @@ app.directive('jcMenu', [function () {
 
             $scope.pageNames = utils.pageNames;
             $scope.linkPages = utils.linkPages;
+            $scope.navigateService = function(id){
+                utils.serviceContentId = id;
+            };
         },
         templateUrl: 'view/menu/nav-menu/nav-menu.html',
         link: function ($scope, element, attrs) {
 
         }
+    }
+}]);
+
+app.directive('iconBadge', [function () {
+
+    return {
+        restrict: 'E',
+        scope: {
+            value: '@',
+            icon : '@'
+        },
+        controller: function ($scope) {
+
+        },
+        templateUrl: 'view/widget/icon-badge.html'
     }
 }]);
 
@@ -101,6 +175,9 @@ app.directive('priceCalculator', function ($uibModal) {
 
             $scope.resultPrice;
 
+
+            $scope.enabledCalculateBtn = true;
+
             $scope.openSopralluogoModal = function () {
 
                 $uibModal.open({
@@ -119,8 +196,6 @@ app.directive('priceCalculator', function ($uibModal) {
                 });
 
             };
-
-            $scope.enabledCalculateBtn = true;
 
 
             $scope.floorTypes = [
@@ -208,4 +283,39 @@ app.directive('priceCalculator', function ($uibModal) {
         }
     }
 
+});
+app.directive('openHourBadge',function(){
+
+    return {
+        restrict : 'E',
+        templateUrl : 'view/widget/open-hour-badge.html',
+        controller : function ($scope) {
+
+        }
+
+    }
+});
+
+app.directive('serviziContent',function(){
+
+    return {
+
+       restrict : 'E',
+        bindToController : {
+
+        },
+        controllerAs : '',
+       scope : {
+
+           templateUrl : '@'
+
+        },
+       templateUrl : 'view/services/service-main.html',
+        controller : function($scope){
+
+
+
+        }
+
+    }
 });

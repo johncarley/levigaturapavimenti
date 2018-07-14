@@ -1,0 +1,35 @@
+<!-- pageheader
+================================================== -->
+<div class="s-pageheader">
+
+    <header class="header">
+        <jc-menu current="{{pageNames.price}}"></jc-menu>
+    </header> <!-- header -->
+
+</div> <!-- end s-pageheader -->
+
+
+<!-- s-content
+================================================== -->
+<section class="s-content">
+
+    <div class="row">
+        <div class="col-md-7">
+            <div uib-carousel active="active" interval="500" no-wrap="false">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Slide {{slide.id}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <p>Descrizione</p>
+        </div>
+
+    </div>
+
+
+</section> <!-- s-content -->

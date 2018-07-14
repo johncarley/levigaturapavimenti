@@ -164,26 +164,6 @@
             }
         });
 
-        // open (or close) submenu items in mobile view menu. 
-        // close all the other open submenu items.
-        $('.header__nav .has-children').children('a').on('click', function (e) {
-            e.preventDefault();
-
-            if ($(".close-mobile-menu").is(":visible") == true) {
-
-                $(this).toggleClass('sub-menu-is-open')
-                    .next('ul')
-                    .slideToggle(200)
-                    .end()
-                    .parent('.has-children')
-                    .siblings('.has-children')
-                    .children('a')
-                    .removeClass('sub-menu-is-open')
-                    .next('ul')
-                    .slideUp(200);
-
-            }
-        });
 
     };
 

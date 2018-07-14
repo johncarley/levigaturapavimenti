@@ -5,13 +5,12 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Ruta levigatura pavimenti</title>
+    <title>Contatti</title>
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- custom library -->
     <script src="library/bower_components/angular/angular.js"></script>
-    <script src="library/bower_components/angular-route/angular-route.js"></script>
+    <link rel="stylesheet" href="library/bower_components/components-font-awesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="library/bower_components/components-bootstrap/css/bootstrap-theme.css">
     <link href="library/bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css" rel="stylesheet">
@@ -19,6 +18,7 @@
     <script src="library/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="library/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="library/bower_components/nya-bootstrap-select/dist/js/nya-bs-select.js"></script>
+
     <script src="js/custom/main-class.js"></script>
     <!-- mobile specific metas
     ================================================== -->
@@ -43,11 +43,26 @@
 </head>
 
 <body id="top" ng-controller="mainCtrl">
-<!--MENU-->
+
+<!-- pageheader
+================================================== -->
+<div class="s-pageheader">
+
+    <header class="header">
+        <jc-menu current="{{pageNames.contact}}"></jc-menu>
+    </header> <!-- header -->
+
+</div> <!-- end s-pageheader -->
+
 
 <!-- s-content
 ================================================== -->
-<ng-view></ng-view>
+<section class="s-content">
+    {{serviceContentId}}
+ <servizi-content template-url="{{serviceContentId}}"></servizi-content>
+
+
+</section> <!-- s-content -->
 
 <!-- s-footer
 ================================================== -->
