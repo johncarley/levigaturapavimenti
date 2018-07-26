@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-7">
+        <div uib-carousel active="active" interval="interval" no-wrap="false">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="color: black;">
+                <img ng-src="{{slide.imgUrl}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>{{slide.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <icon-badge icon="fa fa-stop" custom-class="pointer {{interval == -1 ? 'active-tab-work' : 'none'}}"
+                        value="Stop" ng-click="interval = -1;"></icon-badge>
+            <icon-badge icon="fa fa-play" custom-class="pointer {{interval != -1 ? 'active-tab-work' : 'none'}}"
+                        value="Play" ng-click="interval = 3000;"></icon-badge>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <icon-badge icon="fa fa-info"
+                    custom-class="pointer {{activeTab === 'description' ? 'active-tab-work' : 'none'}}"
+                    value="Descrizione" ng-click="setActiveTab('description')"></icon-badge>
+        <icon-badge icon="fa fa-info" custom-class="pointer {{activeTab === 'worktype' ? 'active-tab-work' : 'none'}}"
+                    value="Tipo lavorazioni" ng-click="setActiveTab('worktype')"></icon-badge>
+        <icon-badge icon="fa fa-info"
+                    custom-class="pointer {{activeTab === 'calculateprice' ? 'active-tab-work' : 'none'}}"
+                    value="Calcolca preventivo" ng-click="setActiveTab('calculateprice')"></icon-badge>
+        <div ng-switch="activeTab">
+            <div ng-switch-when="description">
+
+                <dynamic-element template="description"></dynamic-element>
+
+            </div>
+            <div ng-switch-when="worktype">
+                <dynamic-element template="typeJobs"></dynamic-element>
+            </div>
+            <div ng-switch-when="calculateprice" style="margin: 23px;">
+                <price-calculator compat="Marmo"></price-calculator>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -58,10 +58,19 @@ CUSTOM CODE
    font-size: 1.13rem;
 }
 
+.active-tab-work {
+   background-color: var(--secondary-color-dark)!important;
+   opacity: 0.7;
+}
+
+.badge-lg {
+   padding : 8px 18px!important;
+}
+
 .icon-badge {
-   padding: 3px 10px !important;
+   padding: 3px 10px;
    color: black!important;
-   background: white !important;
+   background: white;
    border: var(--primary-color) solid 1px;
 }
 
