@@ -1,0 +1,35 @@
+
+<div class="modal-header">
+    <h6 class="modal-title" id="modal-title"><i class="fa fa-shopping-cart"></i> CARRELLO</h6>
+</div>
+<div class="modal-body" id="modal-body">
+    <div style="">
+        <div style="list-style: none;margin: 0px;display: flex;flex-direction: column;" ng-if="options.totProducts > 0;">
+            <div ng-repeat="cartProd in cartList" style="display: flex;flex-direction: row;">
+                <div style="width: 97%;">
+                    <i class="fa fa-minus pointer text-danger" ng-click="removeProd(cartProd.prod.id)"></i>
+                    {{cartProd.prod.displayname}}
+                </div>
+                <div style="width: 30%;">
+                    <icon-badge value="{{cartProd.quantity}}"></icon-badge>
+                    <i class="fa fa-plus pointer text-success" style="padding-left: 12px;" ng-click="addProdToCart(cartProd)"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <label style="opacity: 0.7;" ng-if="options.totProducts === 0">Nessun articolo</label>
+        <div style="padding-top: 10px;display:flex;flex-direction: row;">
+            <label style="padding-right: 6px;">totale </label>
+            <icon-badge icon="fa fa-euro" value="{{options.totalPrice}}"></icon-badge>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default btn-xs" ng-disabled="options.totProducts === 0"  ng-if="totProducts > 0"><i class="fa fa-bookmark"></i> PRENOTA
+    </button>
+    <button class="btn btn-primary btn-xs" type="button" ng-click="cancel()" style="margin-bottom:12px;">Chiudi</button>
+</div>

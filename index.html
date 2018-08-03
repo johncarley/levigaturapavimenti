@@ -18,6 +18,8 @@
     <script src="library/bower_components/components-bootstrap/js/bootstrap.js"></script>
     <script src="library/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="library/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type='text/javascript' src='library/bower_components/angular-media-queries/match-media.js'></script>
+    <script src="library/bower_components/lodash/lodash.js"></script>
     <script src="library/bower_components/nya-bootstrap-select/dist/js/nya-bs-select.js"></script>
     <script src="js/custom/main-class.js"></script>
     <!-- mobile specific metas
@@ -29,6 +31,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main-sm.css">
 
     <!-- script
     ================================================== -->
@@ -42,7 +45,12 @@
 
 </head>
 
-<body id="top" ng-controller="mainCtrl">
+<body id="top" ng-controller="mainCtrl" style="background-color: #f2f2f2;">
+<div ng-class="isMobile ? 'body-sm' : ''">
+<div class="fixed-button-bar" ng-if="false">
+    <button class="btn btn-default fixedButton">CIAOOOO</button>
+</div>
+
 <!--MENU-->
 
 <!-- s-content
@@ -74,7 +82,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
-
+</div>
 </body>
 
 </html>

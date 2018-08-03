@@ -7,13 +7,13 @@
 </div> <!-- end s-pageheader -->
 <section class="s-content">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" ng-class="isMobile ? 'sm-content-column' : ''">
             <icon-badge icon="fa fa-info-circle" value="Info generali"></icon-badge>
             <p style="padding-top: 1rem;">La nostra ditta ha fatto tanto nell'arco della sua attività di oltre 40 anni. Due generazioni che hanno
                 fatto conoscere il nostro modo di lavorare in tutta la Puglia, e anche nel Centro Sud.</p>
 
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8" ng-class="isMobile ? 'sm-content-column' : ''">
             <icon-badge icon="fa fa-info-circle" value="Il nostro successo"></icon-badge>
             <uib-accordion close-others="true" >
                 <div uib-accordion-group class="panel-default" ng-model="accordionState1" ng-init="accordionState1 = false;" is-open="accordionState1" style="margin-top: 1rem;" >

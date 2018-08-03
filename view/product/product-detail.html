@@ -1,0 +1,50 @@
+<!-- pageheader
+================================================== -->
+<div class="s-pageheader">
+
+    <header class="header">
+        <jc-menu current="{{pageNames.granito}}"></jc-menu>
+    </header> <!-- header -->
+
+</div> <!-- end s-pageheader -->
+
+
+<!-- s-content
+================================================== -->
+<section class="s-content">
+
+    <div class="row">
+        <div class="col-md-4"
+             ng-class="isMobile ? 'product-detail-media-container sm sm-content-column ' : 'product-detail-media-container '">
+            <img src="{{product.imgUrl}}" style="width:420px;height: 380px;">
+            <div ng-class="isMobile ? 'product-detail-media-bar sm ' : 'product-detail-media-bar'">
+                <i class="fa fa-file-pdf-o pointer" ng-click="linkModelFunc(product.pdfLink)" tooltip-placement="left"
+                   uib-tooltip="Scheda tecnica"></i>
+                <i class="fa fa-video-camera pointer" tooltip-placement="right"></i>
+                <i class="fa fa-photo pointer" tooltip-placement="right"></i>
+            </div>
+        </div>
+        <div class="col-md-8" ng-class="isMobile ? 'sm-content-column' : ''">
+            <label>{{product.displayname}}</label>
+            <icon-badge icon="fa fa-euro" value="{{product.price}}"></icon-badge>
+            <div ng-class="isMobile ? 'sm-content-column' : ''">
+                <h6 style="font-weight: 700;">Descrizione</h6>
+                <p>{{product.description}}</p>
+                        <h6 style="font-weight: 700;">Istruzioni d'uso</h6>
+                        <div ng-include="product.usageTpl"></div>
+                        <h6 style="font-weight: 700;">Categorie</h6>
+                        <p>Cemento, Cemento Pulizia, Cotto, Cotto Pulizia, Detergenti, Granito, Granito pulizia, marmo,
+                            Marmo pulizia, Quarzo Resina, Quarzo Resina Pulizia</p>
+                    <div>
+                        <button class="btn btn-primary"><i class="fa fa-bookmark"></i> Prenota subito</button>
+                        <button class="btn btn-primary" ng-click="addProdToCart(product)"><i class="fa fa-plus"></i>
+                            Carrello
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> <!-- s-content -->

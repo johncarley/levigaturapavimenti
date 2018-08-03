@@ -1,0 +1,82 @@
+<!-- pageheader
+================================================== -->
+<div class="s-pageheader">
+
+    <header class="header">
+        <jc-menu current="{{pageNames.granito}}"></jc-menu>
+    </header> <!-- header -->
+
+</div> <!-- end s-pageheader -->
+
+
+<!-- s-content
+================================================== -->
+<section class="s-content">
+
+    <div class="row">
+        <div class="col-md-12" style="display: flex;flex-direction: column;padding-right: 76.4%;">
+            <label>Prezzo</label>
+            <input type="range"
+                   ng-model="priceRange"
+                   min="{{minPrice}}"
+                   class="slider"
+                   max="{{maxPrice}}"
+                   step="0.2"
+                   style="margin-bottom: 0px;">
+            <icon-badge icon="fa fa-euro" value="{{priceRange}}"></icon-badge>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <icon-badge ng-repeat="floorType in floorTypes" value="{{floorType}}"
+                        custom-class="pointer {{floorFilter[floorType] ? 'active-tab-work' : 'none'}}"
+                        ng-click="changeFloorFilter(floorType)"></icon-badge>
+
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 20px;" ng-class="isMobile ? 'product-category-box sm' : ''" l>
+        <div ng-repeat="prod in products" ng-class="isMobile ? 'col-nine' : 'col-four'">
+            <!--PRODUCT CARD -->
+            <div class="material-box-1-simple" style="background: white;">
+                <!--HEADER -->
+                <div style="display: flex;flex-direction: row;padding-right: 8px">
+                    <button class="category-add-product btn btn-default" ng-click="addProdToCart(prod)" l style="height: 70px;">
+                        <div>
+                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                    </button>
+                    <img src="{{prod.imgUrl}}" style="width: 50px;height: 70px;">
+                    <div style="display: flex;flex-direction: row;width: 100%;">
+                        <div style="display: flex;flex-direction: column;width: 100%;">
+                            <div style="display: flex;flex-direction: row;width: 100%;justify-content: space-between;">
+                                <label style="padding-left: 7px;">{{prod.displayname}}</label>
+                                <i class="fa fa-eye pointer" uib-tooltip="Dettagli" ng-click="showInfo = !showInfo"></i>
+                            </div>
+                            <div style="display: flex;flex-direction: row;width: 100%;justify-content: space-between;">
+                                <icon-badge style="padding-left: 10px;opacity: 0.78;" icon="fa fa-euro" value="{{prod.price}}"></icon-badge>
+                                <span><a href="#!productdetail/true/{{prod.id}}"><i class="fa fa-external-link pointer" tooltip-placement="bottom" uib-tooltip="Scheda completa"></i></a></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--BODY-->
+                <div ng-if="showInfo" style="border-top: var(--primary-color-dark) solid 6px;">
+                    <div style="display: flex;flex-direction: row;padding: 7px;">
+                        <span style="width: 94%;padding: 7px;">aaowdimawmdoawmdoamwdmawmda</span>
+                        <span> <i class="fa fa-file-pdf-o pointer" ng-click="linkModelFunc(prod.pdfLink)" tooltip-placement="right" uib-tooltip="Scheda tecnica"></i></span>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section> <!-- s-content -->

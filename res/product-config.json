@@ -1,0 +1,31 @@
+[
+  {
+    "displayname": "Lava&Lucida",
+    "imgUrl" : "images/product/Detergenti/LLD.png",
+    "id": "lavalucida",
+    "price": 7.00,
+    "description" : "Prodotto per il veloce e semplice mantenimento di superfici in pietra naturale e agglomerata. Usato per lavare e lucidare in una sola operazione pavimenti con brillantezza naturale o incerati. L&L deve essere diluito in acqua in proporzioni da 1/30 a 1/50; ideale sia per uso manuale che con macchina lavasciuga.",
+    "pdfLink" : "https://www.bellinzoni.com/cms/wp-content/uploads/2016/01/IT_024_ST_LAVALUCIDA_LL.pdf",
+    "usageTpl" : "res/lavalucida/usage-detail.html",
+    "floorType" : ["marmo","granito"],
+    "category": "Detergenti"
+  },
+  {
+    "displayname": "Test2",
+    "imgUrl" : "images/Domenico Ruta Logo 2.jpg",
+    "price": 9.00,
+    "pdfLink" : "https://www.bellinzoni.com/cms/wp-content/uploads/2016/01/IT_024_ST_LAVALUCIDA_LL.pdf",
+    "floorType" : ["marmo","granito","pippo"],
+    "id": "lem3",
+    "category": "Detergenti"
+  },
+  {
+    "displayname": "Test3",
+    "imgUrl" : "images/Domenico Ruta Logo 2.jpg",
+    "id": "lavalucida",
+    "pdfLink" : "https://www.bellinzoni.com/cms/wp-content/uploads/2016/01/IT_024_ST_LAVALUCIDA_LL.pdf",
+    "floorType" : ["pippo"],
+    "price": 2.00,
+    "category": "pippo"
+  }
+]

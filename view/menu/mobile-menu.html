@@ -1,0 +1,32 @@
+<div class="mobile-menu-container">
+    <icon-badge icon="fa fa-arrow-left" value="Chiudi" onclick="javascript:history.back()"
+                style="position: absolute;top: 0px;right: 13px;"></icon-badge>
+    <label style="color: white!important;">
+        <i class="fa fa-bars"></i>
+        <span>Menu</span>
+
+    </label>
+    <ul>
+        <li><a href="#!{{linkPages.home}}"  style="color: white;">HOME</a></li>
+        <li><a href="#!{{linkPages.about}}" style="color: white;">CHI SIAMO</a></li>
+        <li>
+            <span ng-click="showServiceSub = !showServiceSub" ng-model="showServiceSub"
+                  ng-init="showServiceSub = false;">SERVIZI <i class="fa fa-angle-down"></i></span>
+            <ul class="mobile-sub-menu" ng-if="showServiceSub">
+                <li><a href="#!{{linkPages.marmo}}">Marmo</a></li>
+                <li><a href="#!{{linkPages.granito}}">Granito</a></li>
+                <li><a href="#!{{linkPages.cemento}}">Cemento</a></li>
+                <li><a href="#!{{linkPages.cotto}}">Cotto</a></li>
+            </ul>
+        </li>
+        <li>
+            <span ng-click="showProductSub = !showProductSub" ng-model="showProductSub"
+                  ng-init="showProductSub = false;">PRODOTTI <i class="fa fa-angle-down"></i></span>
+            <ul class="mobile-sub-menu" ng-if="showProductSub">
+                <li ng-repeat="(key,value) in categories"><a href="#!productcategory/{{key}}">{{key}} <span style="opacity: 0.5;font-size: 14px;">{{value}}</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#!{{linkPages.price}}"  style="color: white;">PREZZI</a></li>
+        <li><a href="#!{{linkPages.contact}}"  style="color: white;">CONTATTI</a></li>
+    </ul>
+</div>

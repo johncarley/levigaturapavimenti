@@ -1,29 +1,30 @@
 <div class="row">
-    <div class="col-md-7">
-        <div uib-carousel active="active" interval="interval" no-wrap="false">
+    <div ng-class="mobile ? 'col-twelve sm-work-slider-container' : 'col-four'">
+        <div uib-carousel ng-class="mobile ? 'sm-work-slider' : ''"  template-url="view/work-slider/work-slide-template.html" active="active" interval="interval" no-wrap="false">
             <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="color: black;">
-                <img ng-src="{{slide.imgUrl}}" style="margin:auto;">
-                <div class="carousel-caption">
-                    <p>{{slide.description}}</p>
+                <img src="{{slide.imgUrl}}" ng-style="{background : 'url('+slide.imgUrl+')',height: '84%',backgroundSize: 'cover',width: '100%'};"></img>
+                <div class="slider-player" style="text-align: left">
+                    <span ng-click="stop()" style="font-size: 13px;"><i class="fa fa-stop pointer" ng-style="interval == -1 ? {color : 'var(--secondary-color-dark)'} : {}" ></i></span>
+                    <span style="padding-left: 3%;font-size: 13px;"><i class="fa fa-play pointer"  ng-style="interval == 3000 ? {color : 'var(--secondary-color-dark)'} : {}" ng-click="play()"></i></span>
+                    <span style="padding-left: 10px;">{{slide.description}}</span>
                 </div>
-            </div>
         </div>
-        <div>
-            <icon-badge icon="fa fa-stop" custom-class="pointer {{interval == -1 ? 'active-tab-work' : 'none'}}"
-                        value="Stop" ng-click="interval = -1;"></icon-badge>
-            <icon-badge icon="fa fa-play" custom-class="pointer {{interval != -1 ? 'active-tab-work' : 'none'}}"
-                        value="Play" ng-click="interval = 3000;"></icon-badge>
-        </div>
+            <!-- SLIDER PLAYER -->
+
+
+
+
     </div>
-    <div class="col-md-5">
+    </div>
+    <div ng-class="mobile ? 'col-twelve' : 'col-eight'">
         <icon-badge icon="fa fa-info"
                     custom-class="pointer {{activeTab === 'description' ? 'active-tab-work' : 'none'}}"
                     value="Descrizione" ng-click="setActiveTab('description')"></icon-badge>
         <icon-badge icon="fa fa-info" custom-class="pointer {{activeTab === 'worktype' ? 'active-tab-work' : 'none'}}"
-                    value="Tipo lavorazioni" ng-click="setActiveTab('worktype')"></icon-badge>
+                    value="Lavorazioni" ng-click="setActiveTab('worktype')"></icon-badge>
         <icon-badge icon="fa fa-info"
                     custom-class="pointer {{activeTab === 'calculateprice' ? 'active-tab-work' : 'none'}}"
-                    value="Calcolca preventivo" ng-click="setActiveTab('calculateprice')"></icon-badge>
+                    value="Preventivo" ng-click="setActiveTab('calculateprice')"></icon-badge>
         <div ng-switch="activeTab">
             <div ng-switch-when="description">
 

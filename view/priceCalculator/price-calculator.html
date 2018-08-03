@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-class="isMobile ? 'sm-work-slider-tab' : ''">
     <div class="row">
         <div class="col-sm-9" ng-if="!compat" >
             <ol class="nya-bs-select" ng-model="$parent.floorType" ng-init="$parent.floorType='Superficie'" style="">
@@ -12,7 +12,7 @@
                 </li>
             </ol>
         </div>
-        <div class="col-sm-3"><input type="number" min="20" ng-model="dimensionMq" placeholder="mq" style="width: 100%;"></div>
+        <div class="col-sm-3"><input type="number" min="20"  max="9999" ng-model="dimensionMq" placeholder="mq" style="width: 100%;"></div>
 
     </div>
 
@@ -42,6 +42,6 @@
         </button>
 
     </div>
-    <icon-badge ng-if="resultPrice" custom-class="badge-lg" icon="fa fa-euro" value="{{resultPrice}}"></icon-badge>
+    <icon-badge ng-class="isMobile ? 'sm-price-result' : ''" ng-if="resultPrice" custom-class="badge-lg" icon="fa fa-euro" value="{{resultPrice}}"></icon-badge>
 
 </div>
