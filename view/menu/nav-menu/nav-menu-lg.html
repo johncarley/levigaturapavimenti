@@ -1,0 +1,45 @@
+<div style="background: var(--primary-color-dark);height: 1rem;">
+
+</div>
+
+<div>
+    <img src="images/Domenico Ruta Logo 1.jpg" style="" ng-if="menuLimit">
+</div> <!-- end header__logo -->
+<header class="header material-box-2" style="display: flex;flex-direction: row;">
+    <div class="header__content row" style="width:81%;">
+
+        <div class="header__logo">
+            <img src="images/Domenico Ruta Logo 1.jpg" style="" ng-if="!menuLimit">
+        </div> <!-- end header__logo -->
+
+        <nav class="header__nav-wrap">
+
+            <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+            <ul class="header__nav">
+                <li ng-class="current === pageNames.home ? 'current' : null"><a href="#!{{linkPages.home}}" title=""><i class="fa fa-home"></i> Home</a></li>
+                <li ng-class="current === pageNames.about ? 'current' : null"><a href="#!{{linkPages.about}}" title="">Chi siamo</a></li>
+                <li ng-click="showServiziSub = !showServiziSub" ng-model="showServiziSub" ng-init="showServiziSub = false;">
+                    <a class="pointer" title=""><i ng-class="showServiziSub ? 'fa fa-times text-danger' : 'fa fa-cubes'"> </i> Servizi</a>
+                    <ul ng-if="showServiziSub">
+                        <li><a href="#!{{linkPages.marmo}}">Marmo</a></li>
+                        <li><a href="#!{{linkPages.granito}}">Granito</a></li>
+                        <li><a href="#!{{linkPages.cemento}}">Cemento</a></li>
+                        <li><a href="#!{{linkPages.cotto}}">Cotto</a></li>
+                    </ul>
+                </li>
+                <li ng-click="showProductSub = !showProductSub" ng-model="showProductSub" ng-init="showProductSub = false;">
+                    <a class="pointer" title=""><i ng-class="showProductSub ? 'fa fa-times text-danger' : 'fa fa-shopping-cart'"></i> Prodotti</a>
+                    <ul ng-if="showProductSub">
+                        <li ng-repeat="(key,value) in categories"><a href="#!productcategory/{{key}}">{{key}} <span style="opacity: 0.5;font-size: 14px;">{{value}}</span></a></li>
+                    </ul>
+                </li>
+                <li ng-class="current == pageNames.price ? 'current' : ''"><a href="#!{{linkPages.price}}" title=""><i class="fa fa-euro"></i> Prezzi</a></li>
+                <li ng-class="current === pageNames.contact ? 'current' : null"><a href="#!{{linkPages.contact}}" title=""> Contatti</a></li>
+            </ul> <!-- end header__nav -->
+
+        </nav> <!-- end header__nav-wrap -->
+
+    </div> <!-- header-content -->
+    <cart-manager></cart-manager>
+</header> <!-- header -->
