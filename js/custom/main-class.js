@@ -643,7 +643,6 @@ app.directive('workSlider', ['screenSize', function (screenSize) {
 
             };
 
-
             $scope.interval = 3000;
 
             $scope.stop = function () {
@@ -664,7 +663,6 @@ app.directive('workSlider', ['screenSize', function (screenSize) {
             $scope.isMobile = screenSize.onChange($scope, 'xs, sm', function (isMatch) {
                 $scope.mobile = isMatch;
             });
-
 
             $scope.setActiveTab = function (id) {
                 $scope.activeTab = id;

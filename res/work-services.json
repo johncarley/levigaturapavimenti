@@ -1,0 +1,135 @@
+{
+
+  "cotto": {
+
+    "description": "",
+    "typeJobs": "",
+    "slides": [
+      {
+        "imgUrl": "",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        imgUrl: pathImages + 'marmo/marmo-2.jpg',
+        id: 1,
+        description: 'Marmo bianco'
+      },
+      {
+        imgUrl: pathImages + 'marmo/marmo-3.jpg',
+        id: 2,
+        description: 'Marmo bianco'
+      }
+    ]
+  },
+  granito: {
+
+    description: '<ul>granito</ul>',
+    typeJobs: '<ul>granito</ul>',
+    slides: [
+      {
+        imgUrl: pathImages + 'granito/granito-1.jpg',
+        id: 0,
+        description: 'Marmo nero'
+      },
+      {
+        imgUrl: pathImages + 'granito/granito-2.jpg',
+        id: 1,
+        description: ''
+      },
+      {
+        imgUrl: pathImages + 'granito/granito-3.jpg',
+        id: 2,
+        description: ''
+      }
+    ]
+  },
+  cemento: {
+
+    description: '<ul></ul>',
+    typeJobs: '<ul></ul>',
+    slides: [
+      {
+        imgUrl: 'images/work/marmo/marmo-1.jpg',
+        id: 0,
+        description: 'Marmo nero'
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-2.jpg',
+        id: 1,
+        description: ''
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-3.jpg',
+        id: 2,
+        description: ''
+      }
+    ]
+  },
+  marmo: {
+
+    description: '<ul></ul>',
+    typeJobs: '<ul></ul>',
+    slides: [
+      {
+        imgUrl: 'images/work/marmo/marmo-1.jpg',
+        id: 0,
+        description: 'Marmo nero'
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-2.jpg',
+        id: 1,
+        description: 'Marmo bianco'
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-3.jpg',
+        id: 2,
+        description: 'Marmo bianco'
+      }
+    ]
+  },
+  pietra: {
+
+    description: '<ul></ul>',
+    typeJobs: '<ul></ul>',
+    slides: [
+      {
+        imgUrl: 'images/work/marmo/marmo-1.jpg',
+        id: 0,
+        description: 'Marmo nero'
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-2.jpg',
+        id: 1,
+        description: ''
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-3.jpg',
+        id: 2,
+        description: ''
+      }
+    ]
+  },
+  industriali: {
+
+    description: '<ul></ul>',
+    typeJobs: '<ul></ul>',
+    slides: [
+      {
+        imgUrl: 'images/work/marmo/marmo-1.jpg',
+        id: 0,
+        description: 'Marmo nero'
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-2.jpg',
+        id: 1,
+        description: ''
+      },
+      {
+        imgUrl: 'images/work/marmo/marmo-3.jpg',
+        id: 2,
+        description: ''
+      }
+    ]
+  }
+}
