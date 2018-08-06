@@ -1,1 +1,134 @@
-{}
+[
+  {
+    "name" : "marmo",
+    "description": "<ul>cotto</ul>",
+    "typeJobs": "<ul>cotto</ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/marmo/marmo-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-2.jpg",
+        "id": 1,
+        "description": "Marmo bianco"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-3.jpg",
+        "id": 2,
+        "description": "Marmo bianco"
+      }
+    ]
+  },
+  {
+    "name" : "granito",
+    "description": "<ul>granito</ul>",
+    "typeJobs": "<ul>granito</ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/granito/granito-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/granito/granito-2.jpg",
+        "id": 1,
+        "description": ""
+      },
+      {
+        "imgUrl": "images/work/granito/granito-3.jpg",
+        "id": 2,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name" : "cotto",
+    "description": "<ul></ul>",
+    "typeJobs": "<ul></ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/marmo/marmo-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-2.jpg",
+        "id": 1,
+        "description": ""
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-3.jpg",
+        "id": 2,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name" : "pietra",
+    "description": "<ul></ul>",
+    "typeJobs": "<ul></ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/marmo/marmo-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-2.jpg",
+        "id": 1,
+        "description": "Marmo bianco"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-3.jpg",
+        "id": 2,
+        "description": "Marmo bianco"
+      }
+    ]
+  },
+  {
+    "name" : "industriali",
+    "description": "<ul></ul>",
+    "typeJobs": "<ul></ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/marmo/marmo-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-2.jpg",
+        "id": 1,
+        "description": ""
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-3.jpg",
+        "id": 2,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name" : "cemento",
+    "description": "<ul></ul>",
+    "typeJobs": "<ul></ul>",
+    "slides": [
+      {
+        "imgUrl": "images/work/marmo/marmo-1.jpg",
+        "id": 0,
+        "description": "Marmo nero"
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-2.jpg",
+        "id": 1,
+        "description": ""
+      },
+      {
+        "imgUrl": "images/work/marmo/marmo-3.jpg",
+        "id": 2,
+        "description": ""
+      }
+    ]
+  }
+]

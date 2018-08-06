@@ -19,16 +19,13 @@
             <ul class="header__nav">
                 <li ng-class="current === pageNames.home ? 'current' : null"><a href="#!{{linkPages.home}}" title=""><i class="fa fa-home"></i> Home</a></li>
                 <li ng-class="current === pageNames.about ? 'current' : null"><a href="#!{{linkPages.about}}" title="">Chi siamo</a></li>
-                <li ng-click="showServiziSub = !showServiziSub" ng-model="showServiziSub" ng-init="showServiziSub = false;">
+                <li ng-click="showServiziSub = !showServiziSub;showProductSub = false" ng-model="showServiziSub" ng-init="showServiziSub = false;">
                     <a class="pointer" title=""><i ng-class="showServiziSub ? 'fa fa-times text-danger' : 'fa fa-cubes'"> </i> Servizi</a>
                     <ul ng-if="showServiziSub">
-                        <li><a href="#!{{linkPages.marmo}}">Marmo</a></li>
-                        <li><a href="#!{{linkPages.granito}}">Granito</a></li>
-                        <li><a href="#!{{linkPages.cemento}}">Cemento</a></li>
-                        <li><a href="#!{{linkPages.cotto}}">Cotto</a></li>
+                        <li ng-repeat="service in linkService"><a href="#!workService/{{service}}">{{service}}</a></li>
                     </ul>
                 </li>
-                <li ng-click="showProductSub = !showProductSub" ng-model="showProductSub" ng-init="showProductSub = false;">
+                <li ng-click="showProductSub = !showProductSub;showServiziSub = false" ng-model="showProductSub" ng-init="showProductSub = false;">
                     <a class="pointer" title=""><i ng-class="showProductSub ? 'fa fa-times text-danger' : 'fa fa-shopping-cart'"></i> Prodotti</a>
                     <ul ng-if="showProductSub">
                         <li ng-repeat="(key,value) in categories"><a href="#!productcategory/{{key}}">{{key}} <span style="opacity: 0.5;font-size: 14px;">{{value}}</span></a></li>

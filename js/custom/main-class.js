@@ -1,4 +1,35 @@
-var app = angular.module('mainApp', ['ui.bootstrap', 'nya.bootstrap.select', 'ngRoute', 'matchMedia']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'nya.bootstrap.select', 'ngRoute', 'matchMedia', 'pascalprecht.translate']);
+
+app.config(function ($translateProvider) {
+
+    var enFile;
+    var itFile;
+
+    $.ajax({
+        url: 'res/i18n/en-en.json',
+        async: false,
+        dataType: 'json',
+        success: function (response) {
+            enFile = response;
+        }
+    });
+
+    $.ajax({
+        url: 'res/i18n/it-it.json',
+        async: false,
+        dataType: 'json',
+        success: function (response) {
+            itFile = response;
+        }
+    });
+
+    $translateProvider.translations('en', enFile);
+
+    $translateProvider.translations('it',itFile);
+
+    $translateProvider.preferredLanguage('it');
+
+});
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -14,18 +45,13 @@ app.config(function ($routeProvider) {
         .when("/contact", {
             templateUrl: "contact.html"
         })
-        .when("/marmo", {
-            templateUrl: "view/services/marmo-service.html"
-        })
-        .when("/granito", {
-            templateUrl: "view/services/granito-service.html"
-        })
-        .when("/cemento", {
-            templateUrl: "view/services/cemento-service.html"
-        })
         .when("/productcategory/:type", {
             templateUrl: "view/product/product-route.html",
             controller: "productCategoryViewCtrl"
+        })
+        .when("/workService/:type", {
+            templateUrl: "view/work-slider/work-service.html",
+            controller: "workServiceCtrl"
         })
         .when("/productdetail/:detail/:id", {
             templateUrl: "view/product/product-route.html",
@@ -35,12 +61,13 @@ app.config(function ($routeProvider) {
             templateUrl: "view/menu/mobile-menu.html",
             controller: "mobileMenuCtrl"
         })
-        .when("/cotto", {
-            templateUrl: "view/services/cotto-service.html"
-        });
 });
 
 app.controller('productCategoryViewCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    $scope.type = $routeParams.type;
+}]);
+
+app.controller('workServiceCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
     $scope.type = $routeParams.type;
 }]);
 
@@ -58,14 +85,6 @@ app.controller('productViewCtrl', ['$scope', '$routeParams', function ($scope, $
 app.service("utils", function () {
 
     var service = this;
-    service.pagesLink = {
-
-        HOME: 'index.html',
-        ABOUT: 'index.html',
-        SERVICE: 'index.html',
-        PRICE: 'index.html',
-        CONTACT: 'index.html'
-    };
 
     service.pageNames = {
         home: 'HOME',
@@ -79,10 +98,6 @@ app.service("utils", function () {
         home: '/',
         about: 'chi-siamo',
         price: 'prezzi',
-        marmo: 'marmo',
-        granito: 'granito',
-        cemento: 'cemento',
-        cotto: 'cotto',
         contact: 'contact'
     };
 
@@ -143,6 +158,36 @@ app.service("utils", function () {
 
     };
     console.log(products);
+
+});
+
+app.service("serviceUtils", function () {
+
+    var service = this;
+    service.linkService = [];
+    service.serviceList = [];
+
+    $.ajax({
+        url: 'res/work-services.json',
+        async: false,
+        dataType: 'json',
+        success: function (serviceList) {
+
+            service.serviceList = serviceList;
+            _.forEach(serviceList, function (item) {
+                service.linkService.push(item.name);
+            });
+
+            service.linkService.sort();
+
+        }
+    });
+
+    service.getTypeInformation = function (name) {
+        return _.find(service.serviceList, function (item) {
+            return item.name === name;
+        });
+    };
 
 });
 
@@ -210,7 +255,7 @@ app.controller('mainCtrl', ['$scope', 'utils', '$compile', '$uibModal', 'screenS
     };
 }]);
 
-app.directive('jcMenu', ['screenSize', function (screenSize) {
+app.directive('jcMenu', ['screenSize', 'serviceUtils', function (screenSize, serviceUtils) {
 
     return {
         restrict: 'E',
@@ -221,6 +266,7 @@ app.directive('jcMenu', ['screenSize', function (screenSize) {
 
             $scope.pageNames = utils.pageNames;
             $scope.linkPages = utils.linkPages;
+            $scope.linkService = serviceUtils.linkService;
             $scope.categories = utils.products.categories;
 
             var dimTemplate;
@@ -492,7 +538,7 @@ app.directive('openHourBadge', function () {
     }
 });
 
-app.directive('workSlider', ['screenSize', function (screenSize) {
+app.directive('workSlider', ['screenSize', 'serviceUtils', function (screenSize, serviceUtils) {
 
     return {
 
@@ -505,150 +551,11 @@ app.directive('workSlider', ['screenSize', function (screenSize) {
         controller: function ($scope) {
 
             var pathImages = 'images/work/';
-            $scope.typeInformation = {
-
-                cotto: {
-
-                    description: '<ul>cotto</ul>',
-                    typeJobs: '<ul>cotto</ul>',
-                    slides: [
-                        {
-                            imgUrl: pathImages + 'marmo/marmo-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: pathImages + 'marmo/marmo-2.jpg',
-                            id: 1,
-                            description: 'Marmo bianco'
-                        },
-                        {
-                            imgUrl: pathImages + 'marmo/marmo-3.jpg',
-                            id: 2,
-                            description: 'Marmo bianco'
-                        }
-                    ]
-                },
-                granito: {
-
-                    description: '<ul>granito</ul>',
-                    typeJobs: '<ul>granito</ul>',
-                    slides: [
-                        {
-                            imgUrl: pathImages + 'granito/granito-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: pathImages + 'granito/granito-2.jpg',
-                            id: 1,
-                            description: ''
-                        },
-                        {
-                            imgUrl: pathImages + 'granito/granito-3.jpg',
-                            id: 2,
-                            description: ''
-                        }
-                    ]
-                },
-                cemento: {
-
-                    description: '<ul></ul>',
-                    typeJobs: '<ul></ul>',
-                    slides: [
-                        {
-                            imgUrl: 'images/work/marmo/marmo-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-2.jpg',
-                            id: 1,
-                            description: ''
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-3.jpg',
-                            id: 2,
-                            description: ''
-                        }
-                    ]
-                },
-                marmo: {
-
-                    description: '<ul></ul>',
-                    typeJobs: '<ul></ul>',
-                    slides: [
-                        {
-                            imgUrl: 'images/work/marmo/marmo-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-2.jpg',
-                            id: 1,
-                            description: 'Marmo bianco'
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-3.jpg',
-                            id: 2,
-                            description: 'Marmo bianco'
-                        }
-                    ]
-                },
-                pietra: {
-
-                    description: '<ul></ul>',
-                    typeJobs: '<ul></ul>',
-                    slides: [
-                        {
-                            imgUrl: 'images/work/marmo/marmo-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-2.jpg',
-                            id: 1,
-                            description: ''
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-3.jpg',
-                            id: 2,
-                            description: ''
-                        }
-                    ]
-                },
-                industriali: {
-
-                    description: '<ul></ul>',
-                    typeJobs: '<ul></ul>',
-                    slides: [
-                        {
-                            imgUrl: 'images/work/marmo/marmo-1.jpg',
-                            id: 0,
-                            description: 'Marmo nero'
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-2.jpg',
-                            id: 1,
-                            description: ''
-                        },
-                        {
-                            imgUrl: 'images/work/marmo/marmo-3.jpg',
-                            id: 2,
-                            description: ''
-                        }
-                    ]
-                }
-
-
-            };
 
             $scope.interval = 3000;
-
             $scope.stop = function () {
                 $scope.interval = -1;
             };
-
             $scope.play = function () {
                 $scope.interval = 5000;
             };
@@ -667,9 +574,10 @@ app.directive('workSlider', ['screenSize', function (screenSize) {
             $scope.setActiveTab = function (id) {
                 $scope.activeTab = id;
             };
-            $scope.slides = $scope.typeInformation[$scope.type].slides;
-            $scope.description = $scope.typeInformation[$scope.type].description;
-            $scope.typeJobs = $scope.typeInformation[$scope.type].typeJobs;
+            var typeInformation = serviceUtils.getTypeInformation($scope.type)
+            $scope.slides = typeInformation.slides;
+            $scope.description = typeInformation.description;
+            $scope.typeJobs = typeInformation.typeJobs;
 
 
         }
@@ -677,7 +585,7 @@ app.directive('workSlider', ['screenSize', function (screenSize) {
     }
 }]);
 
-app.directive('productCategory', ['utils', 'screenSize','$window', function (utils, screenSize,$window) {
+app.directive('productCategory', ['utils', 'screenSize', '$window', function (utils, screenSize, $window) {
     return {
         restrict: 'E',
         scope: {
@@ -695,7 +603,7 @@ app.directive('productCategory', ['utils', 'screenSize','$window', function (uti
                 utils.addProdToCart(prod);
             };
 
-            $scope.linkModelFunc = function (url){
+            $scope.linkModelFunc = function (url) {
                 console.log('link model function');
                 $window.open(url);
             };
@@ -783,7 +691,7 @@ app.directive('productCategory', ['utils', 'screenSize','$window', function (uti
     }
 }]);
 
-app.directive('productDetail', ['utils','$window','screenSize', function (utils,$window,screenSize) {
+app.directive('productDetail', ['utils', '$window', 'screenSize', function (utils, $window, screenSize) {
 
     return {
 
@@ -808,7 +716,7 @@ app.directive('productDetail', ['utils','$window','screenSize', function (utils,
                 $scope.isMobile = isMatch;
             });
 
-            $scope.linkModelFunc = function (url){
+            $scope.linkModelFunc = function (url) {
                 console.log('link model function');
                 $window.open(url);
             };
